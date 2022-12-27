@@ -1,30 +1,26 @@
 package controller;
 
-import Data.Student;
-import Data.Teacher;
-import Data.StudentGroup;
+import data.GroupStream;
+import data.Student;
+import data.Teacher;
+import data.StudentGroup;
 import service.*;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Controller {
-    //private DataService studentService;
-    private DataService userService;
-    private DataServiceGroup userServiceGroup;
+    private final DataService userService;
+    private final DataGroupService userServiceGroup;
+    private GroupStreamService groupStreamService;
 
-//  public Controller(StudentServiceImpl studentService) {
-    public  Controller(StudentServiceImpl userService){
-        //this.studentService = studentService;
+    public Controller(DataService userService, DataGroupService userServiceGroup, GroupStreamService groupStreamService){
         this.userService = userService;
-    }
-
-    public Controller(TeacherServiceImpl userService){
-        this.userService = userService;
-    }
-
-    public Controller(StudentGroupServiceImpl userServiceGroup){
         this.userServiceGroup = userServiceGroup;
+        this.groupStreamService = groupStreamService;
     }
+
+
 
     public Student createStudent(Student student) throws IOException {
         userService.create(student);
@@ -43,5 +39,13 @@ public class Controller {
     public void writeGroup(int groupNumber, StudentGroup sg) throws IOException {
         userServiceGroup.create(groupNumber, sg);
     }
+
+    public void removeStudent(String fio, StudentGroup sg){
+        userServiceGroup.removeStudent(fio, sg);
+    }
+
+    public void streamSort(List<GroupStream> groupStream){
+        groupStreamService.streamsSort(groupStream);
+    };
 
 }

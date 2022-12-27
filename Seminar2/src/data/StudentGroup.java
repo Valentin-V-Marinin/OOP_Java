@@ -1,12 +1,13 @@
-package Data;
+package data;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 
-public class StudentGroup{
+public class StudentGroup implements Iterable<Student> {
 
     private Teacher teacher;
     private List<Student> studentList;
-
 
     public StudentGroup(Teacher teacher, List<Student> studentList) {
         this.teacher = teacher;
@@ -33,4 +34,10 @@ public class StudentGroup{
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
     }
+
+    @Override
+    public Iterator<Student> iterator() {
+        return null; //new studentIterator(this);
+    }
+
 }

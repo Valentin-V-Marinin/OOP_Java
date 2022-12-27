@@ -1,12 +1,14 @@
-package Data;
+package data;
 
 public abstract class User {
     private String fio;
+    private int birthYear;
     private int age;
     private int passport;
 
-    public User(String fio, int age, int passport) {
+    public User(String fio, int birthYear, int age, int passport) {
         this.fio = fio;
+        this.birthYear = birthYear;
         this.age = age;
         this.passport = passport;
     }
@@ -17,6 +19,14 @@ public abstract class User {
 
     public void setFio(String fio) {
         this.fio = fio;
+    }
+
+    public int getBirthYear() {
+        return birthYear;
+    }
+
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
     }
 
     public int getAge() {

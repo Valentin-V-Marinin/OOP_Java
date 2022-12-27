@@ -1,11 +1,13 @@
 package service;
 
-import Data.StudentGroup;
+import data.StudentGroup;
 
 import java.io.IOException;
 
-public interface DataServiceGroup{
+public interface DataGroupService {
     void create(int groupNumber, StudentGroup sg) throws IOException;
     StudentGroup read(int groupNumber) throws IOException;
+
+    void removeStudent(String fio, StudentGroup sg);
 
 }

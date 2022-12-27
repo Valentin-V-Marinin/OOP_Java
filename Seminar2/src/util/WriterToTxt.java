@@ -1,12 +1,12 @@
-package Util;
+package util;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Data.Student;
-import Data.StudentGroup;
-import Data.Teacher;
-import Data.User;
+import data.Student;
+import data.StudentGroup;
+import data.Teacher;
+import data.User;
 
 public class WriterToTxt {
     private static String path_student = "C:\\GB\\HW\\Files\\student_list.txt";
@@ -16,12 +16,14 @@ public class WriterToTxt {
     public static void write(User user) throws IOException {
         if (user instanceof Student) {
             FileWriter fw = new FileWriter(path_student, true);
-            fw.write(user.getFio() + ";" + user.getAge() + ";" + user.getPassport() + ";" + ((Student) user).getGroupNumber() + "\n");
+            fw.write(user.getFio() + ";" + user.getBirthYear() + ";" + user.getAge() + ";" + user.getPassport() + ";" +
+                    ((Student) user).getGroupNumber() + "\n");
             fw.close();
         }
         if (user instanceof Teacher) {
             FileWriter fw = new FileWriter(path_teacher, true);
-            fw.write(user.getFio() + ";" + user.getAge() + ";" + user.getPassport() + ";" + ((Teacher) user).getDepartment() + "\n");
+            fw.write(user.getFio() + ";" + user.getBirthYear() + ";" + user.getAge() + ";" + user.getPassport() + ";" +
+                    ((Teacher) user).getDepartment() + "\n");
             fw.close();
         }
     }
@@ -33,6 +35,7 @@ public class WriterToTxt {
         fw.write("\n");
         fw.write("Преподаватель: \n");
         fw.write(sg.getTeacher().getFio()+";"+
+                     sg.getTeacher().getBirthYear()+";"+
                      sg.getTeacher().getAge()+";"+
                      sg.getTeacher().getPassport()+";"+
                      sg.getTeacher().getDepartment()+"\n");

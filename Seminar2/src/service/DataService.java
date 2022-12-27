@@ -1,6 +1,6 @@
 package service;
 
-import Data.User;
+import data.User;
 
 import java.io.IOException;
 

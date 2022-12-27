@@ -1,8 +1,8 @@
 package service;
 
-import Data.User;
-import Util.ReaderFromTxt;
-import Util.WriterToTxt;
+import data.User;
+import util.ReaderFromTxt;
+import util.WriterToTxt;
 
 import java.io.IOException;
 

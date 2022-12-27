@@ -1,12 +1,13 @@
 package service;
 
-import Data.StudentGroup;
-import Util.ReaderFromTxt;
-import Util.WriterToTxt;
+import data.StudentGroup;
+import data.iterators.StudentGroupIterator;
+import util.ReaderFromTxt;
+import util.WriterToTxt;
 
 import java.io.IOException;
 
-public class StudentGroupServiceImpl implements DataServiceGroup{
+public class StudentGroupServiceImpl implements DataGroupService {
 
     @Override
     public void create(int groupNumber, StudentGroup sg) throws IOException {
@@ -18,4 +19,10 @@ public class StudentGroupServiceImpl implements DataServiceGroup{
         return ReaderFromTxt.readGroup(groupNumber);
     }
 
+    public void removeStudent(String fio, StudentGroup sg){
+        StudentGroupIterator sgi = new StudentGroupIterator(sg);
+        while (sgi.hasNext()){
+            if (sgi.next().getFio().equals(fio)) sgi.remove();
+        }
+    }
 }

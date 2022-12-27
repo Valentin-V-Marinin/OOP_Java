@@ -1,14 +1,13 @@
-package Util;
+package util;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import Data.Student;
-import Data.StudentGroup;
-import Data.Teacher;
-import Data.User;
+import data.Student;
+import data.StudentGroup;
+import data.Teacher;
+import data.User;
 
 public class ReaderFromTxt {
 
@@ -43,7 +42,8 @@ public class ReaderFromTxt {
                     studentList.add(new Student(sg_parts[0],
                                                 Integer.parseInt(sg_parts[1]),
                                                 Integer.parseInt(sg_parts[2]),
-                                                Integer.parseInt(sg_parts[3])));
+                                                Integer.parseInt(sg_parts[3]),
+                                                Integer.parseInt(sg_parts[4])));
                     //System.out.println(line);
                 }
                 line = reader.readLine();
@@ -62,7 +62,8 @@ public class ReaderFromTxt {
         Teacher teacher = new Teacher(sg_parts[0],
                 Integer.parseInt(sg_parts[1]),
                 Integer.parseInt(sg_parts[2]),
-                sg_parts[3]);
+                Integer.parseInt(sg_parts[3]),
+                sg_parts[4]);
 
         StudentGroup sg = new StudentGroup(teacher, studentList);
         sg.setTeacher(teacher);
