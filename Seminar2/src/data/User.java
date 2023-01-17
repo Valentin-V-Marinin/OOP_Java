@@ -13,6 +13,10 @@ public abstract class User {
         this.passport = passport;
     }
 
+    public User(String fio) {
+        this.fio = fio;
+    }
+
     public String getFio() {
         return fio;
     }

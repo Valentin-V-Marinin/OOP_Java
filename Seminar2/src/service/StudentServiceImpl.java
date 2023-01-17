@@ -31,7 +31,6 @@ public class StudentServiceImpl implements DataService{
         return studentRepository.findByFio(fio);
     }
 
-
     @Override
     public void create(User user) throws IOException {
         WriterToTxt.write(user);
@@ -40,5 +39,14 @@ public class StudentServiceImpl implements DataService{
     @Override
     public User read(User user) {
         return ReaderFromTxt.read(user);
+    }
+
+    @Override
+    public void delete(User user) {
+        studentRepository.delete((Student) user);
+    }
+
+    public void delete(int group_id, int age){
+        studentRepository.delete(group_id, age);
     }
 }

@@ -10,13 +10,12 @@ import service.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 
 public class TestProgram {
     public static void main(String[] args) throws IOException {
-
+/*
         Controller student = new Controller(new StudentServiceImpl(), new StudentGroupServiceImpl(), new GroupStreamServiceImpl());
         student.createStudent(new Student("Петров Сергей Васильевич", 2001,21, 121212,1));
         student.createStudent(new Student("Сидоров Иван Сергеевич", 2002, 20, 121213,2));
@@ -63,4 +62,6 @@ public class TestProgram {
         groupStream.streamSort(lgs);
         System.out.println(lgs.get(0).getName() + " -> " + lgs.get(1).getName() + " -> " + lgs.get(2).getName());
     }
+
+ */
 }

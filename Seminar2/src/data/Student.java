@@ -7,6 +7,9 @@ public class Student extends User{
         super(fio, birthYear, age, passport);
         this.groupNumber = groupNumber;
     }
+    public Student(String fio) {
+        super(fio);
+    }
 
     public int getGroupNumber() {
         return groupNumber;
