@@ -1,5 +1,7 @@
 package terminal.executable;
 
+import java.io.IOException;
+
 public interface CommandExecutable {
-    void execute();
+    void execute() throws IOException;
 }

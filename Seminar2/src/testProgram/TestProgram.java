@@ -1,20 +1,18 @@
 package testProgram;
 
-import data.GroupStream;
-import data.Student;
-import data.StudentGroup;
-import data.Teacher;
-import controller.Controller;
-import service.*;
+import terminal.CommandParserImpl;
+import terminal.TerminalReader;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class TestProgram {
     public static void main(String[] args) throws IOException {
+
+        TerminalReader tr = TerminalReader.getInstance(new CommandParserImpl());
+        tr.listener();
+
+
 /*
         Controller student = new Controller(new StudentServiceImpl(), new StudentGroupServiceImpl(), new GroupStreamServiceImpl());
         student.createStudent(new Student("Петров Сергей Васильевич", 2001,21, 121212,1));
@@ -61,7 +59,6 @@ public class TestProgram {
         System.out.println(lgs.get(0).getName() + " -> " + lgs.get(1).getName() + " -> " + lgs.get(2).getName());
         groupStream.streamSort(lgs);
         System.out.println(lgs.get(0).getName() + " -> " + lgs.get(1).getName() + " -> " + lgs.get(2).getName());
+  */
     }
-
- */
 }

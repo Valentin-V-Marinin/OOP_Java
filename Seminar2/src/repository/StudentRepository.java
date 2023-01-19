@@ -3,9 +3,12 @@ package repository;
 import data.Student;
 
 public class StudentRepository implements UserRepository<Student, Integer>{
+    private Integer groupNumber;
+    private Integer age;
+
     @Override
     public Student save(Student entity) {
-        return null;
+       return null;
     }
 
     @Override
@@ -24,7 +27,9 @@ public class StudentRepository implements UserRepository<Student, Integer>{
     }
 
     @Override
-    public Student delete(Integer group_id, Integer age) {
+    public Student delete(Integer groupNumber, Integer age) {
+        this.groupNumber = groupNumber;
+        this.age = age;
         return null;
     }
 }

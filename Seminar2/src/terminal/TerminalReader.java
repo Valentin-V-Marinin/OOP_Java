@@ -1,8 +1,11 @@
 package terminal;
 
+import repository.StudentRepository;
+import service.StudentServiceImpl;
 import terminal.executable.CommandExecutable;
 import terminal.executable.CommandExecutableFactory;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TerminalReader {
@@ -20,14 +23,13 @@ public class TerminalReader {
         this.commandParser = commandParser;
     }
 
-
-    public void listener(){
+    public void listener() throws IOException {
         Scanner sc = new Scanner(System.in);
         while (true){
             String scanData = sc.nextLine();
             String[] input = commandParser.parseCommand(scanData);
             CommandExecutableFactory commandExecutableFactory =
-                    new CommandExecutableFactory();
+                    new CommandExecutableFactory(new StudentServiceImpl(new StudentRepository()));
             CommandExecutable commandExecutable = commandExecutableFactory.create(input);
             commandExecutable.execute();
         }

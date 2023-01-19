@@ -15,6 +15,16 @@ public class TeacherRepository implements UserRepository<Teacher, Integer>{
     }
 
     @Override
+    public Teacher delete(Teacher entity) {
+        return null;
+    }
+
+    @Override
+    public Teacher delete(Integer group_id, Integer age) {
+        return null;
+    }
+
+    @Override
     public Teacher findByFio(String fio) {
         return null;
     }

@@ -13,4 +13,14 @@ public class GroupRepository implements Repository<StudentGroup, Integer> {
     public StudentGroup findById(Integer id) {
         return null;
     }
+
+    @Override
+    public StudentGroup delete(StudentGroup entity) {
+        return null;
+    }
+
+    @Override
+    public StudentGroup delete(Integer group_id, Integer age) {
+        return null;
+    }
 }
