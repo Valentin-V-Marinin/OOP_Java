@@ -4,6 +4,8 @@ import data.StudentGroup;
 import data.iterators.StudentGroupIterator;
 import repository.Repository;
 import util.ReaderFromTxt;
+import util.ReaderGroupFromTxt;
+import util.WriterGroupToTxt;
 import util.WriterToTxt;
 
 import java.io.IOException;
@@ -21,12 +23,12 @@ public class StudentGroupServiceImpl implements DataGroupService {
 
     @Override
     public void create(int groupNumber, StudentGroup sg) throws IOException {
-        WriterToTxt.writeGroup(groupNumber, sg);
+        WriterGroupToTxt.writeGroup(groupNumber, sg);
     }
 
     @Override
     public StudentGroup read(int groupNumber) throws IOException {
-        return ReaderFromTxt.readGroup(groupNumber);
+        return ReaderGroupFromTxt.readGroup(groupNumber);
     }
 
     public void removeStudent(String fio, StudentGroup sg) {
@@ -36,8 +38,8 @@ public class StudentGroupServiceImpl implements DataGroupService {
         }
     }
 
-    public StudentGroup saveGroup(StudentGroup studentGroup) {
-        return studentGroupIntegerRepository.save(studentGroup);
+    public void saveGroup(StudentGroup studentGroup) {
+        studentGroupIntegerRepository.save(studentGroup);
     }
 
     public StudentGroup findGroup(int groupNumber) {

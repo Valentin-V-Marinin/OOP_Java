@@ -5,9 +5,7 @@ import data.Teacher;
 public class TeacherRepository implements UserRepository<Teacher, Integer>{
 
     @Override
-    public Teacher save(Teacher entity) {
-        return null;
-    }
+    public void save(Teacher entity) { }
 
     @Override
     public Teacher findById(Integer id) {
@@ -15,13 +13,12 @@ public class TeacherRepository implements UserRepository<Teacher, Integer>{
     }
 
     @Override
-    public Teacher delete(Teacher entity) {
-        return null;
+    public void delete(Teacher entity) {
     }
 
     @Override
-    public Teacher delete(Integer group_id, Integer age) {
-        return null;
+    public void delete(Integer group_id, Integer age) {
+
     }
 
     @Override

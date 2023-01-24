@@ -5,8 +5,8 @@ import data.StudentGroup;
 
 public class GroupRepository implements Repository<StudentGroup, Integer> {
     @Override
-    public StudentGroup save(StudentGroup entity) {
-        return null;
+    public void save(StudentGroup entity) {
+
     }
 
     @Override
@@ -15,12 +15,11 @@ public class GroupRepository implements Repository<StudentGroup, Integer> {
     }
 
     @Override
-    public StudentGroup delete(StudentGroup entity) {
-        return null;
+    public void delete(StudentGroup entity) {
     }
 
     @Override
-    public StudentGroup delete(Integer group_id, Integer age) {
-        return null;
+    public void delete(Integer group_id, Integer age) {
+
     }
 }

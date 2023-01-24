@@ -17,6 +17,13 @@ public abstract class User {
         this.fio = fio;
     }
 
+    public User(User user) {
+        this.fio = user.fio;
+        this.birthYear = user.birthYear;
+        this.age = user.age;
+        this.passport = user.passport;
+    }
+
     public String getFio() {
         return fio;
     }

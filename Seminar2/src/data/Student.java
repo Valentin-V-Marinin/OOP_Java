@@ -11,6 +11,11 @@ public class Student extends User{
         super(fio);
     }
 
+    public Student(Student student){
+        super(student);
+        this.groupNumber = student.groupNumber;
+    }
+
     public int getGroupNumber() {
         return groupNumber;
     }

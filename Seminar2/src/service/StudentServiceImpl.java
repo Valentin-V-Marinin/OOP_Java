@@ -32,7 +32,7 @@ public class StudentServiceImpl implements DataService {
     }
 
     @Override
-    public void create(User user) throws IOException {
+    public void create(User user) {
         WriterToTxt.write(user);
     }
 

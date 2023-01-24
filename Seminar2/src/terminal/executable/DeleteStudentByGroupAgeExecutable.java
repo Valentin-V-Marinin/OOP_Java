@@ -2,6 +2,8 @@ package terminal.executable;
 
 import service.StudentServiceImpl;
 
+import java.io.IOException;
+
 public class DeleteStudentByGroupAgeExecutable implements CommandExecutable{
     private StudentServiceImpl studentService;
     private int groupNumber;

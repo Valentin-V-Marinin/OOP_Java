@@ -1,10 +1,13 @@
 package repository;
 
+import java.io.IOException;
+
 public interface Repository <E, I>{
-    E save(E entity);
+    void save(E entity);
     E findById(I id);
 
-    E delete(E entity);
+    void delete(E entity);
 
-    E delete(I group_id, I age);
+    void delete(I group_id, I age);
+
 }

@@ -1,73 +1,31 @@
 package util;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import data.Student;
-import data.StudentGroup;
-import data.Teacher;
 import data.User;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+
 public class ReaderFromTxt {
-
-    private static String path_student = "C:\\GB\\HW\\Files\\student_list.txt";
-    private static String path_teacher = "C:\\GB\\HW\\Files\\teacher_list.txt";
-    private static String path_studentGroup = "C:\\GB\\HW\\Files\\studentGroup_list.txt";
     public static User read(User user) {
-//        try(FileReader reader = new FileReader("notes3.txt"))
-//        {
-//            char[] buf = new char[256];
-//            int c;
-//            while((c = reader.read(buf))>0){
-//                if(c < 256){ buf = Arrays.copyOf(buf, c);}
-//                System.out.print(buf);
-//            }
-//        }
-//        catch(IOException ex){ System.out.println(ex.getMessage()); }
-        return null;
-    }
-
-    public static StudentGroup readGroup(int groupNumber) throws IOException {
-        List<Student> studentList = new ArrayList<>();
-        File file;
         try {
-            file = new File(path_student);
-            FileReader fr = new FileReader(file);
-            BufferedReader reader = new BufferedReader(fr);
+            File file = new File(Location.path_student);
+            FileReader fileSource = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fileSource);
             String line = reader.readLine();
+
             while (line != null) {
-                if ( groupNumber == Integer.parseInt(String.valueOf(line.charAt(line.length()-1))) ){
-                    String[] sg_parts = line.split(";");
-                    studentList.add(new Student(sg_parts[0],
-                                                Integer.parseInt(sg_parts[1]),
-                                                Integer.parseInt(sg_parts[2]),
-                                                Integer.parseInt(sg_parts[3]),
-                                                Integer.parseInt(sg_parts[4])));
-                    //System.out.println(line);
-                }
+                String[] sg_parts = line.split(";");
+                System.out.printf("Студент:%s Год_рождения:%s Возраст:%s Паспорт:%s Группа:%s",
+                        sg_parts[0], sg_parts[1], sg_parts[2], sg_parts[3], sg_parts[4]);
                 line = reader.readLine();
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            fileSource.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-
-        file = new File(path_teacher);
-        FileReader fr = new FileReader(file);
-        BufferedReader reader = new BufferedReader(fr);
-        String line = reader.readLine();
-        String[] sg_parts = line.split(";");
-        Teacher teacher = new Teacher(sg_parts[0],
-                Integer.parseInt(sg_parts[1]),
-                Integer.parseInt(sg_parts[2]),
-                Integer.parseInt(sg_parts[3]),
-                sg_parts[4]);
-
-        StudentGroup sg = new StudentGroup(teacher, studentList);
-        sg.setTeacher(teacher);
-        sg.setStudentList(studentList);
-        return sg;
+        return null;
     }
 }

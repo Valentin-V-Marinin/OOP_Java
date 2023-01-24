@@ -6,8 +6,8 @@ import service.StudentServiceImpl;
 import java.io.IOException;
 
 public class CreateStudentExecutable implements CommandExecutable {
-    private StudentServiceImpl studentService;
-    private Student student;
+    private final StudentServiceImpl studentService;
+    private final Student student;
 
     public CreateStudentExecutable(StudentServiceImpl studentService, Student student) {
         this.studentService = studentService;
@@ -15,7 +15,7 @@ public class CreateStudentExecutable implements CommandExecutable {
     }
 
     @Override
-    public void execute() throws IOException {
-        studentService.create(student);
+    public void execute() {
+        studentService.saveStudent(student);
     }
 }
