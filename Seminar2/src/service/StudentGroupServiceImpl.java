@@ -3,10 +3,8 @@ package service;
 import data.StudentGroup;
 import data.iterators.StudentGroupIterator;
 import repository.Repository;
-import util.ReaderFromTxt;
 import util.ReaderGroupFromTxt;
 import util.WriterGroupToTxt;
-import util.WriterToTxt;
 
 import java.io.IOException;
 
@@ -15,10 +13,6 @@ public class StudentGroupServiceImpl implements DataGroupService {
 
     public StudentGroupServiceImpl(Repository<StudentGroup, Integer> studentGroupIntegerRepository) {
         this.studentGroupIntegerRepository = studentGroupIntegerRepository;
-    }
-
-    public Repository<StudentGroup, Integer> getStudentGroupIntegerRepository() {
-        return studentGroupIntegerRepository;
     }
 
     @Override

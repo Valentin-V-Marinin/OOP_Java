@@ -1,5 +1,6 @@
 package terminal;
 
+import db.StudentTable;
 import repository.StudentRepository;
 import service.StudentServiceImpl;
 import terminal.executable.*;
@@ -25,14 +26,12 @@ public class TerminalReader {
         this.commandExecutableFactory = commandExecutableFactory;
     }
 
-    public void listener() throws IOException {
+    public void listener() {
         Scanner sc = new Scanner(System.in);
         while (true){
             String scanData = sc.nextLine();
             Command input = commandParser.parseCommand(scanData);
-            commandExecutableFactory =
-                    new LoggingCommandExecutableFactory(new StudentServiceImpl(new StudentRepository()));
-            CommandExecutable commandExecutable = commandExecutableFactory.create(input);
+            CommandExecutable commandExecutable = terminalReader.commandExecutableFactory.create(input);
             commandExecutable.execute();
         }
     }

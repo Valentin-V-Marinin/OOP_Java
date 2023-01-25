@@ -1,13 +1,12 @@
 package repository;
 
 import data.Student;
+import db.StudentTable;
 import util.RemoverByGroupAgeFromTxt;
-import util.RemoverFromTxt;
-import util.WriterToTxt;
 
-import java.io.IOException;
+public class StudentRepository implements UserRepository<Student, Integer> {
 
-public class StudentRepository implements UserRepository<Student, Integer>{
+    private StudentTable studentTable;
     private Integer groupNumber;
     private Integer age;
     private String fio;
@@ -19,6 +18,7 @@ public class StudentRepository implements UserRepository<Student, Integer>{
     }
 
     public StudentRepository() {
+        this.studentTable = StudentTable.getInstance();
         this.fio = "";
         this.groupNumber = 0;
         this.age = 0;
@@ -30,7 +30,7 @@ public class StudentRepository implements UserRepository<Student, Integer>{
 
     @Override
     public void save(Student entity) {
-        WriterToTxt.write(new Student(entity));
+        studentTable.save(entity);
     }
 
     @Override
@@ -44,8 +44,8 @@ public class StudentRepository implements UserRepository<Student, Integer>{
     }
 
     @Override
-    public void delete(Student fio) {
-        RemoverFromTxt.delete(new Student(fio));
+    public void delete(Student student) {
+        studentTable.removeByFio(student.getFio());
     }
 
     @Override

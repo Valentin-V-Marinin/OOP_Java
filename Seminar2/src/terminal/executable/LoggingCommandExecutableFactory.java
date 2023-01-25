@@ -2,8 +2,6 @@ package terminal.executable;
 
 import service.StudentServiceImpl;
 
-import java.io.IOException;
-
 public class LoggingCommandExecutableFactory extends CommandExecutableFactoryImpl {
     public LoggingCommandExecutableFactory(StudentServiceImpl studentService) {
         super(studentService);
@@ -11,9 +9,9 @@ public class LoggingCommandExecutableFactory extends CommandExecutableFactoryImp
 
     @Override
     public CommandExecutable create(Command input) {
-                System.out.println("start");
-                CommandExecutable result = super.create(input);
-                System.out.println("end");
-                return result;
+        System.out.println("start");
+        CommandExecutable result = super.create(input);
+        System.out.println("end");
+        return result;
     }
 }

@@ -5,7 +5,7 @@ import terminal.executable.Command;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandParserImpl implements CommandParser{
+public class CommandParserImpl implements CommandParser {
 
     @Override
     public Command parseCommand(String inputCommand) {
@@ -13,13 +13,12 @@ public class CommandParserImpl implements CommandParser{
         List<String> parseObj = new ArrayList<>();
         String[] parseRow = inputCommand.split(" ");
         for (int i = 0; i < parseRow.length; i++) {
-            if (i==0){
+            if (i == 0) {
                 firstArgument = parseRow[i];
-            }
-            else {
+            } else {
                 parseObj.add(parseRow[i]);
             }
         }
-        return new Command(firstArgument,parseObj);
+        return new Command(firstArgument, parseObj);
     }
 }
